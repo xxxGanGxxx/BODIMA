@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 function Body() {
 return (
     <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src="holder.js/100px180" alt="Card image" />
+    <Card.Img variant="top" src="https://via.placeholder.com/286x180.png?text=Card+Image" alt="Card image" />
     <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>
