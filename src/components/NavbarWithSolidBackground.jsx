@@ -1,81 +1,92 @@
-﻿import React from "react";
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
+import { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-export default function NavbarWithSolidBackground() {
-  const [openNav, setOpenNav] = React.useState(false);
+const links = [
+  { label: "Home", href: "#home" },
+  { label: "Listings", href: "#listings" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
+];
 
-  React.useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 960) {
-        setOpenNav(false);
+export default function NavbarWithSolidBackground() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const closeOnResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMenuOpen(false);
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", closeOnResize);
+    return () => window.removeEventListener("resize", closeOnResize);
   }, []);
 
-  const navList = (
-    <ul className="mt-2 flex flex-col gap-2 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {[
-        { label: "Pages", href: "#pages" },
-        { label: "Account", href: "#account" },
-        { label: "Blocks", href: "#blocks" },
-        { label: "Docs", href: "#docs" },
-      ].map((item) => (
-        <Typography
-          key={item.label}
-          as="li"
-          variant="small"
-          color="blue-gray"
-          className="p-1 font-medium"
-        >
-          <a href={item.href} className="flex items-center hover:text-blue-500">
-            {item.label}
-          </a>
-        </Typography>
-      ))}
-    </ul>
-  );
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return undefined;
+    }
+
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl rounded-none border-b border-blue-gray-50 bg-white px-4 py-2 lg:px-8 lg:py-4">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography as="a" href="#" className="mr-4 cursor-pointer py-1.5 font-semibold">
-          Material Tailwind
-        </Typography>
-        <div className="hidden lg:block">{navList}</div>
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
-            Sign In
-          </Button>
-          <Button variant="gradient" size="sm">
+    <header className="sticky top-0 z-20 w-full border-b border-slate-200 bg-white/95 backdrop-blur">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6 lg:px-8">
+        <a href="/" className="text-xl font-semibold tracking-tight text-slate-900">
+          BODIMA
+        </a>
+
+        <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 lg:flex">
+          {links.map((link) => (
+            <a key={link.label} href={link.href} className="transition-colors hover:text-slate-900">
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#get-started"
+            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700"
+          >
             Get Started
-          </Button>
+          </a>
         </div>
-        <IconButton
-          variant="text"
-          className="ml-2 inline-flex items-center justify-center lg:hidden"
-          onClick={() => setOpenNav((prev) => !prev)}
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition hover:bg-slate-100 focus:outline-none focus-visible:ring focus-visible:ring-slate-400 lg:hidden"
+          aria-label="Toggle menu"
         >
-          {openNav ? <XMarkIcon className="h-6 w-6" strokeWidth={2} /> : <Bars3Icon className="h-6 w-6" strokeWidth={2} />}
-        </IconButton>
-      </div>
-      <Collapse open={openNav}>
-        <div className="mt-4 flex flex-col gap-4">
-          {navList}
-          <Button variant="gradient" size="sm">
-            Get Started
-          </Button>
+          {isMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+        </button>
+      </nav>
+
+      {isMenuOpen && (
+        <div className="lg:hidden">
+          <div className="space-y-4 border-t border-slate-200 bg-white px-4 py-6 text-sm font-medium text-slate-700 md:px-6">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="block rounded-md px-2 py-2 transition hover:bg-slate-100 hover:text-slate-900"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#get-started"
+              className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Get Started
+            </a>
+          </div>
         </div>
-      </Collapse>
-    </Navbar>
+      )}
+    </header>
   );
 }
