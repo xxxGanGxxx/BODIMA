@@ -11,10 +11,16 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "bootstrap": "^5.3.8",
     "react": "^19.1.1",
+<<<<<<< HEAD
     "react-dom": "^19.1.1",
     "react-bootstrap": "^2.10.2",
     "bootstrap": "^5.3.3"
+=======
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.1"
+>>>>>>> b8f92eb3ff7bf1e9445153e4e63e58f2752c7f78
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
