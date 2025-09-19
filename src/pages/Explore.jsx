@@ -1,5 +1,4 @@
-﻿import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+﻿import ListingCard from "../components/ListingCard.jsx";
 
 const listings = [
   {
@@ -95,41 +94,7 @@ function Explore() {
 
       <div className="explore-grid">
         {listings.map((listing) => (
-          <Card key={listing.id} className="explore-card">
-            <div className="explore-card__media">
-              <Card.Img
-                variant="top"
-                src={listing.image}
-                alt={`${listing.title} - ${listing.location}`}
-                className="explore-card__image"
-              />
-              <div className="explore-card__media-overlay">
-                <span className="explore-card__badge">{listing.location}</span>
-                <span className="explore-card__price-chip">{listing.price}</span>
-              </div>
-            </div>
-            <Card.Body className="explore-card__body">
-              <Card.Title className="explore-card__title">{listing.title}</Card.Title>
-              <Card.Text className="explore-card__description">{listing.description}</Card.Text>
-              <ul className="explore-card__facts" aria-label="Listing quick facts">
-                <li>
-                  <span className="explore-card__fact-label">Beds</span>
-                  <span className="explore-card__fact-value">{listing.beds}</span>
-                </li>
-                <li>
-                  <span className="explore-card__fact-label">Baths</span>
-                  <span className="explore-card__fact-value">{listing.baths}</span>
-                </li>
-                <li>
-                  <span className="explore-card__fact-label">Area</span>
-                  <span className="explore-card__fact-value">{listing.area}</span>
-                </li>
-              </ul>
-              <Button variant="primary" className="explore-card__cta">
-                Call
-              </Button>
-            </Card.Body>
-          </Card>
+          <ListingCard key={listing.id} listing={listing} />
         ))}
       </div>
     </section>
