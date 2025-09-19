@@ -1,23 +1,47 @@
-import Nav from 'react-bootstrap/Nav';
-import 'bootstrap/dist/css/bootstrap.min.css';
+﻿import { MagnifyingGlassIcon, HeartIcon, UserIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
+import "./NavbarWithSolidBackground.css";
 
+const navItems = [
+  {
+    id: "explore",
+    label: "Explore",
+    icon: MagnifyingGlassIcon,
+    to: "/explore",
+  },
+  {
+    id: "saved",
+    label: "Saved",
+    icon: HeartIcon,
+    to: "/saved",
+  },
+  {
+    id: "profile",
+    label: "Profile",
+    icon: UserIcon,
+    to: "/profile",
+  },
+];
 
-
-function AlignmentExample() {
+function NavbarWithSolidBackground() {
   return (
-    <>
-      <Nav className="justify-content-center" activeKey="/home">
-        <Nav.Item>
-          <Nav.Link href="/home">EXPLORE</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">SAVED</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">CONTACT US</Nav.Link>
-        </Nav.Item>
-      </Nav>
-    </>
+    <div className="pill-nav-wrapper">
+      <nav className="pill-nav" aria-label="Primary navigation">
+        {navItems.map(({ id, label, icon: Icon, to }) => (
+          <NavLink
+            key={id}
+            to={to}
+            className={({ isActive }) =>
+              `pill-nav__item${isActive ? " pill-nav__item--active" : ""}`
+            }
+          >
+            <Icon className="pill-nav__icon" aria-hidden="true" />
+            <span className="pill-nav__label">{label}</span>
+          </NavLink>
+        ))}
+      </nav>
+    </div>
   );
 }
-export default AlignmentExample;
+
+export default NavbarWithSolidBackground;
