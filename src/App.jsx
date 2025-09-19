@@ -1,11 +1,11 @@
 import NavbarWithSolidBackground from "./components/NavbarWithSolidBackground";
-import Body from "./components/body";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
     <>
       <NavbarWithSolidBackground />
-      <Body />
     </>
   );
 }
