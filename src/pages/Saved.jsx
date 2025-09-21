@@ -1,30 +1,20 @@
-﻿import ListingCard from "../components/ListingCard.jsx";
-import { useSavedListings } from "../context/SavedListingsContext.jsx";
+﻿import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
-function Saved() {
-  const { savedListings } = useSavedListings();
-  const hasSavedListings = savedListings.length > 0;
-
+function BasicExample() {
   return (
-    <section className="page" aria-labelledby="saved-title">
-      <header className="page__header">
-        <h1 id="saved-title">Saved Homes</h1>
-        <p>
-          Your bookmarked listings live here so you can revisit or share them whenever you are ready.
-        </p>
-      </header>
-
-      {hasSavedListings ? (
-        <div className="explore-grid" role="list">
-          {savedListings.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
-          ))}
-        </div>
-      ) : (
-        <p role="status">You haven't saved any homes yet. Tap the Save button on a listing to add it here.</p>
-      )}
-    </section>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
   );
 }
 
-export default Saved;
+export default BasicExample;

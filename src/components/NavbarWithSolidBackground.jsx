@@ -1,6 +1,6 @@
 ﻿import { MagnifyingGlassIcon, HeartIcon, UserIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
-import "./NavbarWithSolidBackground.css";
+import "./NavbarWithSolidBackground.css"; 
 
 const navItems = [
   {
