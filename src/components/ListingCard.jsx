@@ -1,29 +1,9 @@
-﻿import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useSavedListings } from "../context/SavedListingsContext.jsx";
 
 function ListingCard({ listing }) {
-  const { toggleSaved, isSaved } = useSavedListings();
-  const saved = isSaved(listing.id);
-
-  const handleSaveClick = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    toggleSaved(listing);
-  };
-
   return (
     <Card className="explore-card">
-      <button
-        type="button"
-        className={`explore-card__save ${saved ? "is-saved" : ""}`}
-        onClick={handleSaveClick}
-        aria-pressed={saved}
-        aria-label={saved ? "Remove from saved" : "Save listing"}
-      >
-        {saved ? "Saved" : "Save"}
-      </button>
-
       <div className="explore-card__media">
         <Card.Img
           variant="top"

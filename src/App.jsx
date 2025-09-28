@@ -1,8 +1,8 @@
 ﻿import { Navigate, Route, Routes } from "react-router-dom";
 import NavbarWithSolidBackground from "./components/NavbarWithSolidBackground";
 import Explore from "./pages/Explore";
-import Profile from "./pages/Profile";
 import Saved from "./pages/Saved";
+import Profile from "./pages/Profile";
 import "./App.css";
 
 

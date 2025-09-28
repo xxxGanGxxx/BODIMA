@@ -79,6 +79,34 @@ const listings = [
     image:
       "https://images.unsplash.com/photo-1616594039964-4c24b4a74c94?auto=format&fit=crop&w=900&q=80",
   },
+
+    {
+    id: "apt-06",
+    title: "Lakeview Duplex",
+    description:
+      "Two-level duplex with floor-to-ceiling windows framing peaceful lake vistas.",
+    location: "Rajagiriya",
+    beds: 3,
+    baths: 3,
+    area: "1,750 sq ft",
+    price: "LKR 240,000/mo",
+    image:
+      "https://images.unsplash.com/photo-1616594039964-4c24b4a74c94?auto=format&fit=crop&w=900&q=80",
+  },
+
+    {
+    id: "apt-06",
+    title: "Lakeview Duplex",
+    description:
+      "Two-level duplex with floor-to-ceiling windows framing peaceful lake vistas.",
+    location: "Rajagiriya",
+    beds: 3,
+    baths: 3,
+    area: "1,750 sq ft",
+    price: "LKR 240,000/mo",
+    image:
+      "https://images.unsplash.com/photo-1616594039964-4c24b4a74c94?auto=format&fit=crop&w=900&q=80",
+  },
 ];
 
 function Explore() {
@@ -87,8 +115,8 @@ function Explore() {
       <header className="page__header">
         <h1 id="explore-title">Explore Listings</h1>
         <p>
-          Curated stays and long-term homes tailored for urban explorers, coastal dreamers, and
-          families alike.
+          
+
         </p>
       </header>
 
