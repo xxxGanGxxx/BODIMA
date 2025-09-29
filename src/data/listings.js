@@ -163,7 +163,7 @@
     priceCurrency: "LKR",
     pricePerNight: 53600,
     image:
-      "https://images.unsplash.com/photo-1472220625704-91e1462799b2?auto=format&fit=crop&w=900&q=80",
+      "maleesha2.svg",
     gallery: [
       "https://images.unsplash.com/photo-1472220625704-91e1462799b2?auto=format&fit=crop&w=1600&q=80",
       "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=1600&q=80",
