@@ -3,8 +3,8 @@ import NavbarWithSolidBackground from "./components/NavbarWithSolidBackground";
 import Explore from "./pages/Explore";
 import Saved from "./pages/Saved";
 import Profile from "./pages/Profile";
+import ListingDetails from "./pages/ListingDetails";
 import "./App.css";
-
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/listing/:listingId" element={<ListingDetails />} />
         </Routes>
       </main>
     </>
