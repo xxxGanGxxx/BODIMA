@@ -1,15 +1,14 @@
 ﻿import { Navigate, Route, Routes } from "react-router-dom";
-import NavbarWithSolidBackground from "./components/NavbarWithSolidBackground";
 import Explore from "./pages/Explore";
 import Saved from "./pages/Saved";
 import Profile from "./pages/Profile";
 import ListingDetails from "./pages/ListingDetails";
+import NavbarWithSolidBackground from "./components/NavbarWithSolidBackground";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <NavbarWithSolidBackground />
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Navigate to="/explore" replace />} />
@@ -19,6 +18,7 @@ function App() {
           <Route path="/listing/:listingId" element={<ListingDetails />} />
         </Routes>
       </main>
+      <NavbarWithSolidBackground />
     </>
   );
 }
