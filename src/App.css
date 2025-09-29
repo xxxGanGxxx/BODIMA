@@ -9,15 +9,9 @@
 
 .app-main {
   margin-top: 3rem;
+  padding-bottom: 6.5rem;
 }
 
-.page {
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-  border-radius: 0;
-  text-align: left;
-}
 
 .page h1 {
   font-size: 2rem;
@@ -834,3 +828,10 @@
 .saved-empty__cta:focus {
   text-decoration: underline;
 }
+
+
+
+
+
+
+
